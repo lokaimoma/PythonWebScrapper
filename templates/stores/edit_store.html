@@ -1,0 +1,48 @@
+{% if session['email'] == config.ADMIN %}
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <nav class="navbar navbar-light navbar-expand-lg border border-info rounded" >
+        <a class="navbar-brand" href="#">Eazy Peazy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('alerts.index') }}">Alerts</a>
+                <a class="nav-item nav-link" href="{{ url_for('stores.index') }}">Stores</a>
+                <a class="nav-item nav-link" href="#">Log out</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <header><h4>Edit store</h4></header>
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Store name</label>
+            <input id="name" type="text" name="name" placeholder="John Lewis" value="{{ store.name }}" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="url_prefix">Homepage of site</label>
+            <input id="url_prefix" type="text" name="url_prefix" placeholder="https://johnlewis.com/" value="{{ store.url_prefix }}" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="tag_name">Tag name</label>
+            <input id="tag_name" type="text" name="tag_name" placeholder="p or span" aria-describedby="tag_nameHelp" value="{{ store.tag_name }}" class="form-control">
+            <small id="tag_nameHelp" class="form-text text-muted">Can leave this option if it's same.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="query">Query</label>
+            <input id="query" type="text" name="query" placeholder='{"class": "price bg-a"}' aria-describedby="queryHelp" value="{{ store.query }}" class="form-control">
+            <small id="queryHelp" class="form-text text-muted">Change all single quotes into double quotes even if there is no change to be made.</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</section>
+{% endblock %}
+{% endif %}

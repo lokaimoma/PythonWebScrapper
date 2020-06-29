@@ -1,0 +1,14 @@
+<<<<< Jumia >>>>>>>>
+url_prefix: https://www.jumia.ma/
+tag name: span
+query: {"class": "-b -ltr -tal -fs24"}
+<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+<<<<<<<<<<<<<<< John Lewsi >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+url_prefix: https://www.johnlewis.com/
+tag_name: p
+query: {"class": "price price--large}
+<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>><<<<<>>>>>>>>>>>>

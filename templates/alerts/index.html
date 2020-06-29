@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <nav class="navbar navbar-light navbar-expand-lg border border-info rounded" >
+        <a class="navbar-brand" href="#">Eazy Peazy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('alerts.index') }}">Alerts</a>
+                <a class="nav-item nav-link" href="{{ url_for('stores.index') }}">Stores</a>
+                <a class="nav-item nav-link" href="#">Log out</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="list-group mb-3">
+        <header><h4>Alerts</h4></header>
+        {% for alert in alerts %}
+            <div class="list-group-item">
+                <p>{{ alert.name }}</p>
+                <p>
+                    <a href="{{ alert.item.url }}">Link to item</a>
+                    <small class="d-flex w-100">Your price limit is {{ alert.price_limit }}</small>
+                    <small class="d-flex w-100">Current item price is {{ alert.price }}</small>
+                </p>
+                <p>
+                    <a href="{{ url_for('alerts.remove_alert', alert_id=alert._id) }}" class="btn btn-danger">
+                        Remove
+                    </a>
+                    <a href="{{ url_for('alerts.edit_alert', alert_id=alert._id) }}" class="btn btn-secondary">
+                        Edit
+                    </a>
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('alerts.create_new') }}" class="btn btn-success">Create alert</a>
+</section>
+{% endblock %}

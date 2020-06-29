@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <nav class="navbar navbar-light navbar-expand-lg border border-info rounded" >
+        <a class="navbar-brand" href="#">Eazy Peazy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('users.register_user') }}">Register</a>
+                <a class="nav-item nav-link" href="{{ url_for('alerts.index') }}">Alerts</a>
+                <a class="nav-item nav-link" href="#">About</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <header><h4>Log in</h4></header>
+    <form method="post">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="example@mailservice.com" aria-describedby="emailHelp" class="form-control">
+            <small id="emailHelp" class="form-text text-muted">Enter your email.</small>
+
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="password" aria-describedby="passwordHelp" class="form-control">
+            <small id="passwordHelp" class="form-text text-muted">Enter password</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+</section>
+{% endblock %}

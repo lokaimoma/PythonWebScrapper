@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <nav class="navbar navbar-light navbar-expand-lg border border-info rounded" >
+        <a class="navbar-brand" href="#">Eazy Peazy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('alerts.index') }}">Alerts</a>
+                <a class="nav-item nav-link" href="{{ url_for('stores.index') }}">Stores</a>
+                <a class="nav-item nav-link" href="#">Log out</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <header><h4>Edit alert</h4></header>
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Item name</label>
+            <input id="name" type="text" name="name" placeholder="DVD player" value="{{ alert.name }}" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="url">Link to item</label>
+            <input id="url" type="text" name="url" placeholder="https://johnlewis.com/dvdplayer/p3423" value="{{ alert.item.url }}" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="price_limit">Prefered price</label>
+            <input id="price_limit" type="text" name="price_limit" value="{{ alert.price_limit }}" aria-describedby="price_limitHelp" class="form-control">
+            <small id="price_limitHelp" class="form-text text-muted">Enter new price price limit.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</section>
+{% endblock %}

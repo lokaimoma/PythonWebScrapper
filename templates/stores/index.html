@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <nav class="navbar navbar-light navbar-expand-lg border border-info rounded" >
+        <a class="navbar-brand" href="#">Eazy Peazy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" href="{{ url_for('alerts.index') }}">Alerts</a>
+                <a class="nav-item nav-link" href="{{ url_for('stores.index') }}">Stores</a>
+                <a class="nav-item nav-link" href="#">Log out</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="list-group mb-3">
+        <header><h4>Stores</h4></header>
+        {% for store in stores %}
+            <div class="list-group-item">
+                <p>{{ store.name }}</p>
+                <p>
+                    <a href="{{ store.url_prefix }}">{{ store.url_prefix }}</a>
+                    <small class="d-flex w-100">Tag name: {{ store.tag_name }}</small>
+                    <small class="d-flex w-100">Query {{ store.query }}</small>
+                </p>
+                {% if session['email'] == config.ADMIN %}
+                    <p>
+                        <a href="{{ url_for('stores.edit_store', store_id=store._id) }}" class="btn btn-secondary">
+                        Edit
+                        </a>
+                    </p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    {% if session['email'] == config.ADMIN %}
+        <a href="{{ url_for('stores.new_store') }}" class="btn btn-success">Create store</a>
+    {% endif %}
+</section>
+{% endblock %}
