@@ -1,6 +1,8 @@
 # PythonWebScrapper
 This is a simple flask web API for scrapping E-commerce sites for the prices of items on the web and alerting them when the price they want to buy it has reached.
 
+The program is not yet yet done, but if you know more about flask and python you can make something about it.
+
 Project is in initial stage not yet done.
 
 Mongodb is used as database.
