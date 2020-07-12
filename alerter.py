@@ -1,4 +1,4 @@
-import gmailFier
+from libs import gmailFier
 import time
 from models import Alert, Item
 from libs import gmailFier as gf
