@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Price Alerter</h1>
+        
+        <p class="lead">
+            We simply give alerts on price drops, on items depending on the price limit you give us.
+        </p>
+
+        <hr class="my-4" />
+
+        <p>
+            Just sign up  and let's get on with the fun!!!!!!!!.
+        </p>
+
+        <a href="{{ url_for("users.register_user") }}" class="btn btn-primary  btn-lg">Get started</a>
+
+    </div>
+{% endblock content %} 
+

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from views import alerts_blueprint
 from views import stores_blueprint
 from views import users_blueprint
@@ -10,12 +10,14 @@ app.config.update(
     ADMIN=os.environ.get('ADMIN')
 ) 
 
+@app.route("/")
+def index():
+    return render_template("home.html")
+
+
 app.register_blueprint(alerts_blueprint, url_prefix="/alerts")
 app.register_blueprint(stores_blueprint, url_prefix="/stores")
 app.register_blueprint(users_blueprint, url_prefix="/users")
-
-
-
 
 if __name__=="__main__":
     app.run()

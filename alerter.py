@@ -1,6 +1,7 @@
 import gmailFier
 import time
 from models import Alert, Item
+from libs import gmailFier as gf
 
 alerts = Alert.find_all
 for a in alerts:
@@ -10,7 +11,5 @@ for a in alerts:
     a.update_mongo(a._id)
 
     if a.price >= a.price_limit:
-        
-
-
+        gf.sendEmail(f"Pricelimit Alert", a.user_email, f"Price limit for {a.name} has reached")
 
