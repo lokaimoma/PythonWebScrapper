@@ -1,7 +1,9 @@
 import pymongo
+import os
 
 class Database:
-    url = "mongodb://127.0.0.1:27017/clarkdb"
+    # original url for local "mongodb://127.0.0.1:27017/clarkdb"
+    url = os.environ.get('MONGOLAB_URI')
     DATABASE = pymongo.MongoClient(url).get_database()
 
     @staticmethod
