@@ -42,6 +42,6 @@ ADMIN=admin@example.com
 2. Replace only "admin@example.com" with the email you want to use as admin. Keep the .env in the root folder.
 3. The program will automatically add it to environmental variables.
 4. With admin access you can add stores at a more easier way than what we did above.
-5. After adding it to admi.
+5. After adding it to admin.
 6. Create a new user with that email and log in.
 7. Then you can access the create stores access point and create the stores from your browser.
